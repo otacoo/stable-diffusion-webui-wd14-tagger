@@ -368,13 +368,7 @@ def on_ui_tabs():
                         )
 
                         with gr.Row():
-                            parameters_copypaste.bind_buttons(
-                                parameters_copypaste.create_buttons(
-                                    ["txt2img", "img2img"],
-                                ),
-                                None,
-                                tags
-                            )
+                            buttons = parameters_copypaste.create_buttons(["txt2img", "img2img"])
                         rating_confidences = gr.Label(
                             label='Rating confidences',
                             elem_id='rating-confidences',
