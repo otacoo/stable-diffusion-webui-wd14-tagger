@@ -1,12 +1,16 @@
 """Purpose: Pydantic models for the API."""
-from typing import List, Dict
+from typing import List, Dict, Optional
 
-from modules.api import models as sd_models  # pylint: disable=E0401
 from pydantic import BaseModel, Field
 
 
-class TaggerInterrogateRequest(sd_models.InterrogateRequest):
-    """Interrogate request model"""
+class TaggerInterrogateRequest(BaseModel):
+    """Interrogate request model."""
+    image: Optional[str] = Field(
+        default=None,
+        title='Image',
+        description='Image to work on.',
+    )
     model: str = Field(
         title='Model',
         description='The interrogate model used.',
