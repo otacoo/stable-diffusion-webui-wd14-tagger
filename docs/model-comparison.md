@@ -47,3 +47,8 @@ animal focus, clothes writing, earrings, full body, meme, shirt, shoes, simple b
 ```
 1boy, arm hair, black footwear, cat, dirty, full body, furry, leg hair, male focus, shirt, shoes, simple background, socks, solo, standing, tail, white background, white shirt
 ```
+
+#### [`wd-eva02-large-tagger-v3`](https://huggingface.co/SmilingWolf/wd-eva02-large-tagger-v3)
+```
+Image not available.
+```
