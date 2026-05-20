@@ -472,4 +472,7 @@ def on_ui_tabs():
                            inputs=[input_glob, output_dir] + common_input,
                            outputs=common_output)
 
+        tagger_interface.load(fn=utils.preset.apply, inputs=[selected_preset],
+                              outputs=[*utils.preset.components, info])
+
     return [(tagger_interface, "Tagger", "tagger")]

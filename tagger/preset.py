@@ -54,7 +54,9 @@ class Preset:
         if not filename.endswith('.json'):
             filename += '.json'
 
-        path = self.base_dir.joinpath(sanitize_filename_part(filename))
+        stem, _ = os.path.splitext(filename)
+        safe_name = sanitize_filename_part(stem) + '.json'
+        path = self.base_dir.joinpath(safe_name)
         configs = {}
 
         if path.is_file():
@@ -78,7 +80,7 @@ class Preset:
         self.base_dir.mkdir(0o777, True, True)
         path.write_text(json.dumps(configs, indent=4), encoding='utf-8')
 
-        return 'successfully saved the preset'
+        return 'Successfully saved the preset.'
 
     def apply(self, filename: str) -> Tuple:
         values = self.load(filename)[1]
@@ -93,7 +95,7 @@ class Preset:
 
             outputs.append(component.update(**config))
 
-        return (*outputs, 'successfully loaded the preset')
+        return (*outputs, 'Successfully loaded the preset.')
 
     def list(self) -> List[str]:
         presets = [
