@@ -1,10 +1,16 @@
+# v1.2.1 (2024-06-??)
+
+- **Forge Neo compatibility** — Fixed `AttributeError` crashes when `shared.cmd_opts` lacks attributes like `use_cpu`, `additional_device_ids`, `deepdanbooru_projects_path`, `onnxtagger_path`, and `api_auth`. Defaults to GPU inference when `use_cpu` is unavailable. Replaced `generation_parameters_copypaste` import with `infotext_utils` for Forge Neo.
+- **New model: wd-eva02-large-tagger-v3** — Added support for SmilingWolf's latest `wd-eva02-large-tagger-v3` model.
+- **Preset auto-load on UI start** — Presets now load automatically when the UI starts, no manual refresh needed.
+
+# v1.2.0 (2023-09-16)
 
 Api changes:
 Image interrogation via api receives two extra parameters; empty strings by
 default. `queue`: the name for a queue, which could be e.g. the person or
 subject name. You can leave it empty for the first interrogation, then the
 response will que in a new auto-generated unique name, listed in the response.
-# v1.2.0 (2023-09-16)
 
 Make sure you use this same name as queue, for all interrogations that you want
 to be grouped together. The second parameter is `name_in_queue`: the name for
