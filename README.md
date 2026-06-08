@@ -1,5 +1,13 @@
-Tagger for [Automatic1111's WebUI](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
+Tagger for [Stable Diffusion WebUI Forge Classic & Neo](https://github.com/Haoming02/sd-webui-forge-classic)
 ---
+
+## What's New in This Fork
+- **wd-eva02-large-tagger-v3** - Added support for SmilingWolf's latest tagger model
+- **Preset auto-load** - Presets now correctly load automatically when the UI starts
+- **Forge Neo compatibility** - Fixed crashes on SD WebUI Forge **Neo**
+
+## Original Readme
+
 Interrogate booru style tags for single or multiple image files using various models, such as DeepDanbooru.
 
 [한국어를 사용하시나요? 여기에 한국어 설명서가 있습니다!](README.ko.md)
