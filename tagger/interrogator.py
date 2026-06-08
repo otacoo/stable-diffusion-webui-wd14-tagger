@@ -22,14 +22,15 @@ from . import dbimutils  # pylint: disable=import-error # noqa
 Its = settings.InterrogatorSettings
 
 # select a device to process
-use_cpu = ('all' in shared.cmd_opts.use_cpu) or (
-    'interrogate' in shared.cmd_opts.use_cpu)
+_use_cpu_val = getattr(shared.cmd_opts, 'use_cpu', '')
+use_cpu = ('all' in _use_cpu_val) or (
+    'interrogate' in _use_cpu_val)
 
 # https://onnxruntime.ai/docs/execution-providers/
 # https://github.com/toriato/stable-diffusion-webui-wd14-tagger/commit/e4ec460122cf674bbf984df30cdb10b4370c1224#r92654958
 onnxrt_providers = ['CUDAExecutionProvider', 'CPUExecutionProvider']
 
-if shared.cmd_opts.additional_device_ids is not None:
+if getattr(shared.cmd_opts, 'additional_device_ids', None) is not None:
     m = re_match(r'([cg])pu:\d+$', shared.cmd_opts.additional_device_ids)
     if m is None:
         raise ValueError('--device-id is not cpu:<nr> or gpu:<nr>')

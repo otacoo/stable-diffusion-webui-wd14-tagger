@@ -23,7 +23,7 @@ class Api:
     def __init__(
         self, app: FastAPI, qlock: Lock, prefix: Optional[str] = None
     ) -> None:
-        if shared.cmd_opts.api_auth:
+        if getattr(shared.cmd_opts, 'api_auth', None):
             self.credentials = {}
             for auth in shared.cmd_opts.api_auth.split(","):
                 user, password = auth.split(":")
@@ -149,7 +149,7 @@ class Api:
         if self.prefix:
             path = f'{self.prefix}/{path}'
 
-        if shared.cmd_opts.api_auth:
+        if getattr(shared.cmd_opts, 'api_auth', None):
             return self.app.add_api_route(path, endpoint, dependencies=[
                    Depends(self.auth)], **kwargs)
         return self.app.add_api_route(path, endpoint, **kwargs)

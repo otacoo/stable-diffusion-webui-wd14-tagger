@@ -67,10 +67,10 @@ interrogators: Dict[str, Interrogator] = {
 def refresh_interrogators() -> List[str]:
     """Refreshes the interrogators list"""
     # load deepdanbooru project
-    ddp_path = shared.cmd_opts.deepdanbooru_projects_path
+    ddp_path = getattr(shared.cmd_opts, 'deepdanbooru_projects_path', None)
     if ddp_path is None:
         ddp_path = default_ddp_path
-    onnx_path = shared.cmd_opts.onnxtagger_path
+    onnx_path = getattr(shared.cmd_opts, 'onnxtagger_path', None)
     if onnx_path is None:
         onnx_path = default_onnx_path
     os.makedirs(ddp_path, exist_ok=True)
