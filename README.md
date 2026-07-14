@@ -3,7 +3,7 @@ Tagger for [Stable Diffusion WebUI Forge Classic & Neo](https://github.com/Haomi
 
 ## What's New in This Fork
 - **wd-eva02-large-tagger-v3** - Added support for SmilingWolf's latest tagger model
-- **Preset auto-load** - Presets now correctly load automatically when the UI starts
+- **Preset auto-load** - Presets now correctly load automatically when the UI starts (Classic only)
 - **Forge Neo compatibility** - Fixed crashes on SD WebUI Forge **Neo**
 
 ## Original Readme
