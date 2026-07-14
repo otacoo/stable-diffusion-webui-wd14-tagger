@@ -93,7 +93,12 @@ class Preset:
                 if config['value'] not in component.choices:
                     config['value'] = None
 
-            outputs.append(component.update(**config))
+            result = component.update(**config)
+
+            if isinstance(result, dict):
+                outputs.append(result)
+            else:
+                outputs.append(dict(config, __type__='update'))
 
         return (*outputs, 'Successfully loaded the preset.')
 

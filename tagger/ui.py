@@ -472,7 +472,12 @@ def on_ui_tabs():
                            inputs=[input_glob, output_dir] + common_input,
                            outputs=common_output)
 
-        tagger_interface.load(fn=utils.preset.apply, inputs=[selected_preset],
-                              outputs=[*utils.preset.components, info])
+        # Skip loading preset on Forge Neo because of Gradio 4.x 
+        try:
+            from modules.fifo_lock import FIFOLock
+        except ImportError:
+            tagger_interface.load(fn=utils.preset.apply,
+                                  inputs=[selected_preset],
+                                  outputs=[*utils.preset.components, info])
 
     return [(tagger_interface, "Tagger", "tagger")]
