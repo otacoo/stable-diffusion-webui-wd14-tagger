@@ -1,4 +1,10 @@
-# v1.2.1 (2024-06-??)
+# v1.2.2 (2024-07-14)
+
+**Forge Neo:** 
+  - Fix an issue with loading the preset that could prevent the extension to load on Neo, preset loading will now be skipped on Neo
+  - Correctly use the CPU for inferring on Neo
+
+# v1.2.1 (2024-06-08)
 
 - **Forge Neo compatibility** — Fixed `AttributeError` crashes when `shared.cmd_opts` lacks attributes like `use_cpu`, `additional_device_ids`, `deepdanbooru_projects_path`, `onnxtagger_path`, and `api_auth`. Defaults to GPU inference when `use_cpu` is unavailable. Replaced `generation_parameters_copypaste` import with `infotext_utils` for Forge Neo.
 - **New model: wd-eva02-large-tagger-v3** — Added support for SmilingWolf's latest `wd-eva02-large-tagger-v3` model.
